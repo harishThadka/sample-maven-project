@@ -3,7 +3,7 @@ pipeline{
     stages {
     stage('Install') {
       steps {
-        withMaven(globalMavenSettingsConfig: 'null', jdk: 'Java11', maven: 'Maven3', mavenSettingsConfig: 'null', mavenSettingsFilePath: '$MAVEN_HOME/conf/settings.xml') {
+        withMaven(globalMavenSettingsConfig: 'null', jdk: 'Java11', maven: 'JenkinsMaven', mavenSettingsConfig: 'null') {
           sh 'mvn clean install'
       }
       }
