@@ -1,13 +1,12 @@
-pipeline {
-    agent any 
+pipeline{
+  agent any
     stages {
-    stage('maven install') {
+    stage('Install') {
       steps {
-
-        sh 'mvn clean install'
-
+        withMaven(globalMavenSettingsConfig: 'null', jdk: 'null', maven: 'Maven3', mavenSettingsConfig: 'null') {
+          sh 'mvn clean install'
+        }
       }
     }
-
   }
 }
